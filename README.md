@@ -13,7 +13,7 @@
 **Elysian Shores** is a full-stack hotel booking web application built with **React + TypeScript** (frontend) and **FastAPI** (backend). It allows users to search for available rooms, make bookings, and manage their reservations with ease. Designed with a clean UI and mobile responsiveness, the app supports secure login/signup, booking persistence, and real-time availability checks.
 
 > ✅ Frontend: [https://elysian-shores.vercel.app](https://elysian-shores.vercel.app)  
-> ✅ API: [https://elysian-shores-api.onrender.com/docs#/](https://elysian-shores-api.onrender.com/docs#/)
+> ✅ API: [https://elysian-shores-api.onrender.com](https://elysian-shores-api.onrender.com/docs#/)
 
 ---
 

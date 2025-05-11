@@ -50,7 +50,7 @@ export default function MyBookingPage() {
   // Fetch bookings on mount
   useEffect(() => {
     axios
-      .get<Booking[]>('https://elysian-shores-api.onrender.com/bookings', { headers })
+      .get<Booking[]>('https://elysian-shores-api.onrender.com/bookings/', { headers })
       .then(res => setBookings(res.data))
       .catch(() => setError('Failed to load bookings'))
       .finally(() => setLoading(false))
@@ -61,7 +61,7 @@ export default function MyBookingPage() {
     setCanceling(true)
     setCancelError(null)
     axios
-      .delete(`https://elysian-shores-api.onrender.com/bookings/${id}`, { headers })
+      .delete(`https://elysian-shores-api.onrender.com/bookings/${id}/`, { headers })
       .then(() => {
         setBookings(bs => bs.filter(b => b.id !== id))
         setSelected(null)

@@ -205,14 +205,12 @@ const styles: { [k:string]: React.CSSProperties } = {
     top: 10,
     zIndex: 10,
     padding: '20px 25px',
-    background: '#FFFFFF'
   },
   topbar: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 12,
-    background: '#FFFFFF'
   },
   back: {
     width: 24,

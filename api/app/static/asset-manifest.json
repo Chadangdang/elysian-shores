@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.54436b9d.css",
+    "main.js": "/static/js/main.95677f82.js",
+    "static/media/room3.png": "/static/media/room3.adc67c400ab03ec80642.png",
+    "static/media/pool.png": "/static/media/pool.b56c5c168348f9e3649f.png",
+    "static/media/room1.png": "/static/media/room1.86ade4a2771eb041e05e.png",
+    "static/media/room2.png": "/static/media/room2.d9824b8bc3c810c4f843.png",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.1815e00441357e01619e.ttf",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "index.html": "/index.html",
+    "main.54436b9d.css.map": "/static/css/main.54436b9d.css.map",
+    "main.95677f82.js.map": "/static/js/main.95677f82.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54436b9d.css",
+    "static/js/main.95677f82.js"
+  ]
+}

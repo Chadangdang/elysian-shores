@@ -1,0 +1,8 @@
+{
+  "short_name": "Elysian",
+  "name": "Elysian Shores",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6DD3D4",
+  "background_color": "#FFFFFF"
+}

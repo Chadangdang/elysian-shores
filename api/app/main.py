@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from starlette.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import auth, rooms, bookings
 from app.database import engine, Base, SessionLocal, get_db
@@ -23,6 +25,8 @@ app.include_router(auth.router)
 app.include_router(rooms.router)
 app.include_router(bookings.router)
 
+app.mount("/", StaticFiles(directory="app/static", html=True), name="static")
+
 @app.get("/")
 def read_root():
     return { "message": "Welcome to Elysian Shores API" }
@@ -37,3 +41,7 @@ def seed_database():
             crud.seed_availability(db)
     finally:
         db.close()
+
+@app.get("/{full_path:path}", include_in_schema=False)
+async def spa_fallback(full_path: str):
+    return FileResponse("app/static/index.html")

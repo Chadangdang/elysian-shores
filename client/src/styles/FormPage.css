@@ -1,0 +1,26 @@
+.form-page {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 0 16px;
+  }
+  .form-page h2 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .form-page label {
+    display: block;
+    margin-top: 16px;
+  }
+  .form-page input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+  .form-button {
+    width: 100%;
+    max-width: 100% !important;
+    margin: 0;
+  }
+  

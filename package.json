@@ -1,0 +1,27 @@
+{
+  "name": "elysian-shores",
+  "version": "1.0.0",
+  "description": "Hotel booking app for DES422",
+  "main": "index.js",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chadangdang/elysian-shores.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chadangdang/elysian-shores/issues"
+  },
+  "homepage": "https://github.com/Chadangdang/elysian-shores#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

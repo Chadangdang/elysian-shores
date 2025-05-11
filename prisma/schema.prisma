@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  username       String    @unique
+  fullName       String
+  email          String    @unique
+  hashedPassword String
+  bookings       Booking[]
+}
+
+model RoomType {
+  id           String             @id
+  name         String             @unique
+  description  String?
+  capacity     Int
+  bookings     Booking[]
+  Room         Room[]
+  availability RoomAvailability[]
+}
+
+model RoomAvailability {
+  id         Int      @id @default(autoincrement())
+  roomTypeId String
+  date       DateTime
+  remaining  Int
+  roomType   RoomType @relation(fields: [roomTypeId], references: [id])
+
+  @@unique([roomTypeId, date])
+}
+
+model Booking {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  roomTypeId   String
+  checkinDate  String
+  checkoutDate String
+  createdAt    String
+  guests       Int
+  roomType     RoomType @relation(fields: [roomTypeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user         User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Room {
+  id         Int      @id @default(autoincrement())
+  roomTypeId String
+  roomNumber String   @unique(map: "sqlite_autoindex_Room_1")
+  RoomType   RoomType @relation(fields: [roomTypeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([id], map: "ix_Room_id")
+}
+
+model room_availability {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  type_id   String
+  remaining Int
+  rooms     rooms    @relation(fields: [type_id], references: [type_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([type_id, date], map: "sqlite_autoindex_room_availability_1")
+  @@index([id], map: "ix_room_availability_id")
+}
+
+model room_type {
+  id          String  @id
+  name        String? @unique(map: "ix_room_type_name")
+  capacity    Int
+  description String?
+
+  @@index([id], map: "ix_room_type_id")
+}
+
+model rooms {
+  type_id           String              @id
+  type              String
+  description       String
+  room_availability room_availability[]
+
+  @@index([type_id], map: "ix_rooms_type_id")
+}

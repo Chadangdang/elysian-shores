@@ -12,15 +12,19 @@ router = APIRouter(prefix="/bookings", tags=["bookings"])
 
 router = APIRouter(prefix="/bookings", tags=["bookings"])
 
-@router.get("/", response_model=List[schemas.BookingResponse])
+@router.get(
+    "/",
+    response_model=List[schemas.BookingResponse],
+    status_code=status.HTTP_200_OK,
+)
 def list_bookings(
-    db: Session = Depends(get_db),
+    db: Session            = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
     """
-    Fetch all bookings for the current user.
+    Return all bookings for the current user.
     """
-    return crud.get_bookings(db=db, user_id=current_user.id)
+    return crud.get_bookings(db, user_id=current_user.id)
 
 @router.post(
     "/confirm",

@@ -152,7 +152,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: '12px 16px',
     fontSize: 16,
     borderRadius: 15,
-    border: '0.75px solid #070707',
+    border: '1px solid #070707',
     marginBottom: 16,
     width: '100%',
     boxSizing: 'border-box',

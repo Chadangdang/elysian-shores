@@ -1,17 +1,18 @@
-import axios from 'axios';
+// client/src/api/client.ts
+import axios from 'axios'
 
-const HOST = process.env.REACT_APP_API_URL || window.location.hostname;
+// 👉 force use of the HTTPS URL in production, fallback to localhost for dev
+const API_URL =
+  process.env.REACT_APP_API_URL || 'http://localhost:8001'
 
 const client = axios.create({
-  baseURL: `http://${HOST}:8001`,
-});
+  baseURL: API_URL,
+})
 
 client.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+  const token = localStorage.getItem('token')
+  if (token) config.headers.Authorization = `Bearer ${token}`
+  return config
+})
 
-export default client;
+export default client

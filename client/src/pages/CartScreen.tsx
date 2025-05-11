@@ -80,7 +80,7 @@ export default function CartScreen() {
     console.log('booking payload:', payload)
     try {
       await axios.post(
-        'http://localhost:8001/bookings/confirm',
+        'https://elysian-shores-api.onrender.com/bookings/confirm',
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       )

@@ -194,6 +194,8 @@ export default SearchPage
 const styles: { [k:string]: React.CSSProperties } = {
   page: {
     background: 'linear-gradient(to bottom, #FFFFFF 30%, #B1EAF0 90%)',
+    display: 'flex',
+    flexDirection: 'column',
     minHeight: '100vh'
   },
   fixedTop: {

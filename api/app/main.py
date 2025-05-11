@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from starlette.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import auth, rooms, bookings
 from app.database import engine, Base, SessionLocal, get_db
@@ -21,6 +23,8 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(rooms.router)
 app.include_router(bookings.router)
+
+app.mount("/", StaticFiles(directory="app/static", html=True), name="static")
 
 @app.get("/")
 def read_root():

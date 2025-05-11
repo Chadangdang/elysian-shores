@@ -38,13 +38,14 @@ def confirm_bookings(
         nights = (item.checkout - item.checkin).days
         for offset in range(nights):
             day = (item.checkin + timedelta(days=offset)).date()
+            day_str = day.isoformat()  # "YYYY-MM-DD"
             avail = (
                 db.query(models.RoomAvailability)
-                  .filter(
-                    models.RoomAvailability.roomTypeId == item.type_id,
-                    func.date(models.RoomAvailability.date) == day.isoformat()
-                  )
-                  .first()
+                 .filter(
+                 models.RoomAvailability.roomTypeId == item.type_id,
+                 func.strftime("%Y-%m-%d", models.RoomAvailability.date) == day_str
+                         )
+                .first()
             )
             if not avail or avail.remaining < 1:
                 raise HTTPException(

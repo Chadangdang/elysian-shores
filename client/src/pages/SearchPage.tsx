@@ -194,9 +194,11 @@ export default SearchPage
 const styles: { [k:string]: React.CSSProperties } = {
   page: {
     background: 'linear-gradient(to bottom, #FFFFFF 30%, #B1EAF0 90%)',
+    backgroundAttachment: 'fixed',
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh'
+    height: '100vh',
+    overflow: 'hidden'
   },
   fixedTop: {
     position: 'sticky',
@@ -298,6 +300,8 @@ const styles: { [k:string]: React.CSSProperties } = {
   },
 
   scrollSection: {
+    flex: 1,
+    overflowY: 'auto',
     padding: '20px 16px 60px'
   },
   message: {

@@ -61,7 +61,7 @@ export default function MyBookingPage() {
     setCanceling(true)
     setCancelError(null)
     axios
-      .delete(`https://elysian-shores-api.onrender.com/bookings/${id}/`, { headers })
+      .delete(`https://elysian-shores-api.onrender.com/bookings/${id}`, { headers })
       .then(() => {
         setBookings(bs => bs.filter(b => b.id !== id))
         setSelected(null)
